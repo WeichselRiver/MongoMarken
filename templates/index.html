@@ -13,13 +13,22 @@
         <a href="{{ url_for('addStamp') }}">Add Stamp</a>
     </header>
     <h1>Berlin West</h1>
-    <ul>
+    <table>
+        <tr>
+            <th>MichNr</th>
+            <th>Entwertung</th>
+            <th>Anzahl</th>
+            <th>Variante</th>
+        </tr>
         {% for marke in marken %}
-        <li>
-            MichNr: {{ marke['MichNr'] }} {{ marke['Entwertung'] }} : {{ marke['Anzahl'] }} 
-        </li>
+        <tr>
+            <td>{{ marke['MichNr'] }}</td>
+            <td>{{ marke['Entwertung'] }} </td>
+            <td> {{ marke['Anzahl'] }} </td>  
+            <td>None</td>
+        </tr>  
         {% endfor %}
-    </ul>
+    </table>
 
 </body>
 

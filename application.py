@@ -18,7 +18,7 @@ class MyForm(FlaskForm):
     gebiet = SelectField('Gebiet', choices=gebiete)
     michnr = IntegerField('MichNr')
     entwertung = RadioField('Entwertung', choices=entwertungen)
-    anzahl = IntegerField('Anzahl')
+    anzahl = IntegerField('Anzahl', default = 0)
 
 @app.route('/')
 def home_page():
