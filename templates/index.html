@@ -6,6 +6,9 @@
 
 {% block body %}
 
+{% for satz in tbl_saetze %}
+<p>{{ satz['Jahrgang'] }}</p>
+{% endfor %}
 <table>
     <tr>
         <th>MichNr</th>

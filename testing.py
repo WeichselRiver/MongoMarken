@@ -1,29 +1,32 @@
-#%% 
-from pymongo import MongoClient
-client = MongoClient('localhost', 27017)
+#%% Load data
+import pymongo
+import ssl
+
+
+
+db = client.Berlin_West   #Select the database
+collect = db.Container1 #Select the collection
+saetze = db.Satz #Select the collection
+
+
+# %% get data
+Marken = collect.find()
+
+
+mn_group = collect.aggregate([
+    { "$match" : {"Entwertung" : "o"}},
+    { "$group": { "_id": "$MichNr", "total": { "$sum": "$Anzahl" } } },
+])
+
+for mn in mn_group:
+    print(mn)
+ 
 
 
 # %%
-Marken = client.Briefmarken.Berlin_West
+saetze.find_one()
 
 
-# %%
-print(Marken.find_one())
-
-# %%
-from datetime import datetime
-print(Marken.find_one())
-ins = {'MichNr': 10, 
-'Gebiet': 'Berlin West',
- 'Album': 5,
-  'Entwertung': '**',
-   'Anzahl': 0,
-   'InsTime' : datetime.now(),
-   'Variante' : [
-       { 'Farbe' : 'a'},
-       { 'Rand' : 'linke obere Ecke'}
-   ]}
-post_id = Marken.insert_one(ins)
 
 
 # %%

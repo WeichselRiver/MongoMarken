@@ -7,7 +7,7 @@ from wtforms import StringField, IntegerField
 from wtforms.validators import DataRequired
 
 
-uri = "mongodb://marken:6kwieS9bXJhgqXJL9tvzdl7F4b4s8S37ZssSuhdfb4zQOUzNWYqcRMzPsd4HwxllXlnq1spJJ1J8GAZPoZ69JQ==@marken.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&maxIdleTimeMS=120000&appName=@marken@&retrywrites=false"
+
 client = pymongo.MongoClient(uri, ssl=True)
 
 db = client.Berlin_West   #Select the database
@@ -32,12 +32,10 @@ class Satz(FlaskForm):
 def get_all():
 
     output = collect.find()
-    # for marke in collect.find():
-    #     try:
-    #         output.append({'MichNr' : marke['MichNr']})
-    #     except:
-    #         pass
-    return render_template("index.html", marken = output)
+    tbl_satz = saetze. 
+
+
+    return render_template("index.html", marken = output, tbl_saetze = tbl_satz)
 
 @app.route('/addSatz', methods=['GET', 'POST'])
 def add_Satz():
@@ -60,3 +58,5 @@ def add_Satz():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+#TODO: Überschriften Tabelle **, *, o
