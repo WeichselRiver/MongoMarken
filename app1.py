@@ -5,9 +5,10 @@ import datetime
 from flask_wtf import FlaskForm
 from wtforms import StringField, IntegerField
 from wtforms.validators import DataRequired
+import conf
 
 
-
+uri = conf.uri
 client = pymongo.MongoClient(uri, ssl=True)
 
 db = client.Berlin_West   #Select the database
@@ -32,7 +33,7 @@ class Satz(FlaskForm):
 def get_all():
 
     output = collect.find()
-    tbl_satz = saetze. 
+    tbl_satz = saetze.find()
 
 
     return render_template("index.html", marken = output, tbl_saetze = tbl_satz)
