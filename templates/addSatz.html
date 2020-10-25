@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Satz ergänzen:</h1>  
+    <form method="POST" action="/addSatz">
+        {{ form.csrf_token }}
+        {{ form.Beschreibung.label }} {{ form.Beschreibung }}
+        {{ form.Gebiet.label }} {{ form.Gebiet }}
+        {{ form.Jahrgang.label }} {{ form.Jahrgang }}
+        {{ form.MichStart.label }} {{ form.MichStart }}
+        {{ form.MichEnd.label }} {{ form.MichEnd }}
+        <input type="submit" value="Go">
+
+    </form>
+  
+</body>
+</html>

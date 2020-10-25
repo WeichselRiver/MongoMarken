@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block head %}
+    <title>{{ title }} </title>
+{% endblock %}
+
+{% block body %}
+    <header>
+        <a >Add Stamp</a>
+    </header>
+    <h1>Berlin West</h1>
+    <table>
+        <tr>
+            <th>MichNr</th>
+            <th>Entwertung</th>
+            <th>Anzahl</th>
+            <th>Variante</th>
+        </tr>
+        {% for marke in marken %}
+        <tr>
+            <td>{{ marke['MichNr'] }}</td>
+            <td>{{ marke['Entwertung'] }} </td>
+            <td> {{ marke['Anzahl'] }} </td>  
+            <td>None</td>
+        </tr>  
+        {% endfor %}
+    </table>
+
+{% endblock %}
