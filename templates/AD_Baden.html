@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block head %}
+    <title>Altdeutschland (Baden) </title>
+{% endblock %}
+
+{% block body %}
+
+{% for satz in sets %}
+<h1>{{ satz ['_id'] }}</h1>
+{% for book in satz['books'] %}
+<p>{{ book['Beschreibung'] }}:  #{{ book['MichStart'] }} - #{{ book['MichEnd'] }} </p>
+
+<table>
+    <tr>
+        <th>Zeichnung</th>
+        <th>MichNr</th>
+        <th>**</th>
+        <th>*</th>
+        <th>o</th>
+    </tr>
+
+</table>
+{% endfor %}
+
+
+
+{% endfor %}
+
+{% endblock %}

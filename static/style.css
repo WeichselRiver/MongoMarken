@@ -6,3 +6,7 @@ table, th, td {
 table {
     border-spacing: 5px;
   }
+
+body {
+  padding: 2cm;
+}
