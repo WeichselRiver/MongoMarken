@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block head %}
+<title>Marke ergänzen</title>
+{% endblock %}
+
+{% block body %}
+<h1>Marke ergänzen:</h1>
+<form method="POST" action="/addStamp">
+    {{ form.hidden_tag() }}
+    {{ form.gebiet.label }} {{ form.gebiet }}
+    {{ form.jahrgang.label }} {{ form.jahrgang }}
+    {{ form.satz.label }} {{ form.satz}} <br>
+    {{ form.michnr.label }} {{ form.michnr}}
+    {{ form.entwertung.label }} {{ form.entwertung}}
+    {{ form.anzahl.label }} {{ form.anzahl}}
+    {{ form.bild.label }} {{ form.bild}}
+    <input type="submit" value="Go">
+
+</form>
+
+
+{% endblock %}

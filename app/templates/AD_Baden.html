@@ -5,10 +5,8 @@
 
 {% block body %}
 
-{% for satz in sets %}
-<h1>{{ satz ['_id'] }}</h1>
-{% for book in satz['books'] %}
-<p>{{ book['Beschreibung'] }}:  #{{ book['MichStart'] }} - #{{ book['MichEnd'] }} </p>
+
+<h2>{{ marke }} </h2>
 
 <table>
     <tr>
@@ -20,10 +18,8 @@
     </tr>
 
 </table>
-{% endfor %}
 
 
 
-{% endfor %}
 
 {% endblock %}

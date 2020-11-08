@@ -6,7 +6,11 @@ client = pymongo.MongoClient(uri, ssl=True)
 
 db = client.Berlin_West   #Select the database
 collect = db.Container1 #Select the collection
-saetze = db.Satz #Select the collection
+
+
+#%% Delete all documents !!!!
+
+collect.delete_many({})
 
 
 # %% get data
@@ -16,42 +20,27 @@ saetze = db.Satz #Select the collection
 # mn_group = saetze.aggregate( [ { "$group" : { "_id" : "$Jahrgang" } } ] )
 
 mn_group = saetze.aggregate([
-   { "$group" : { "_id" : "$Jahrgang", "books": { "$push": "$Beschreibung" } } }
+   { "$group" : { "_id" : "$Jahrgang", "Satz": { "$push": ["$Beschreibung", "$MichStart", "$MichEnd"] } } }
  ])
+
+list(mn_group)[0]['Satz'][0][1]
 
 # %%
 for mn in mn_group:
     print(mn)
  
+#%%
+act_set =saetze.find_one()
+lb = act_set['MichStart']
+ub = act_set['MichEnd']
+mn_range = range(lb, ub)
+
+list(collect.find({"MichNr" : {"$in" : list(mn_range)}}))
 
 
-# %%
-saetze.find_one()
 
-
-
-
-# %%
-
-list(Marken.aggregate([
-      { "$group": { "_id": "$Gebiet", "total": { "$sum": "$Anzahl" } } },
-]))
-# %%
-list(Marken.aggregate([
-      { "$match": { "MichNr": 1}}
-]))
-
-# %%
-# Requires the PyMongo package.
-# https://api.mongodb.com/python/current
-from pymongo import MongoClient
-
-client = MongoClient('mongodb+srv://Admin:Feynman314@cluster0.imglv.azure.mongodb.net/test?authSource=admin&replicaSet=atlas-y1poto-shard-0&readPreference=primary&appname=MongoDB%20Compass%20Community&ssl=true')
-result = client['Briefmarken']['AB Gemeinschaft'].aggregate([
-    {
-        '$match': {
-            'Besitz': -1
-        }
-    }, {}
-])
+#%%
+mn = 3
+set_found = saetze.find_one({"MichStart" : {"$lte": mn}, "MichEnd" : {"$gte": mn}})
+list(saetze.find({"_id" : set_found['_id']}))
 # %%

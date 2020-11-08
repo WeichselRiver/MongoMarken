@@ -8,8 +8,10 @@
 
 <h1>Deutschland-Spezial Band 1</h1>
 <h2>Altdeutschland</h2>
+
 <a href="{{ url_for( 'AD_Baden' ) }}"><h3>Altdeutschland (Baden)</h3></a>
 <a href="{{ url_for( 'AD_Bayern' ) }}"><h3>Altdeutschland (Bayern)</h3></a>
+
 <h1>Deutschland-Spezial Band 2</h1>
 
 {% for satz in tbl_saetze %}
@@ -31,8 +33,6 @@
     </tr>  
     {% endfor %}
 </table>
-
-<a href="{{ url_for('add_Satz') }}">Add Satz</a>
 
 
 {% endblock %}
