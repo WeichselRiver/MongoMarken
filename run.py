@@ -7,6 +7,6 @@ if __name__ == "__main__":
 #DONE: Überschriften Tabelle **, *, o
 #TODO: Upload jpg and compress
 #TODO: Selection fields
-#TODO: config file
-#TODO: richtige Struktur
+#DONE: config file
+#DONE: richtige Struktur
 #TODO: bootstrap

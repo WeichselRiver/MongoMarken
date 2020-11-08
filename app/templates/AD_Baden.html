@@ -5,18 +5,22 @@
 
 {% block body %}
 
-
-<h2>{{ marke }} </h2>
-
+<h1>Altdeutschland Baden</h1>
 <table>
     <tr>
-        <th>Zeichnung</th>
         <th>MichNr</th>
-        <th>**</th>
-        <th>*</th>
-        <th>o</th>
+        <th>Entwertung</th>
+        <th>Anzahl</th>
+        <th>Variante</th>
     </tr>
-
+    {% for marke in marken %}
+    <tr>
+        <td>{{ marke['MichNr'] }}</td>
+        <td>{{ marke['Entwertung'] }} </td>
+        <td> {{ marke['Anzahl'] }} </td>  
+        <td>None</td>
+    </tr>  
+    {% endfor %}
 </table>
 
 

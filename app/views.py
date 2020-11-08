@@ -5,14 +5,14 @@ from app import app, collect
 @app.route('/', methods=['GET'])
 def get_all():
 
-    marken = collect.find()
+    anzMarken = collect.find().count()
 
-    return render_template("index.html", marken = marken)
+    return render_template("index.html", anzMarken = anzMarken)
 
 
 @app.route('/AD_BADEN', methods=['GET'])
 def AD_Baden():
-    marken = []
+    marken = collect.find({"Gebiet" : "AD Baden"})
     return render_template("AD_Baden.html", marken = marken)
 
 

@@ -8,6 +8,9 @@ db = client.Berlin_West   #Select the database
 collect = db.Container1 #Select the collection
 
 
+
+
+
 #%% Delete all documents !!!!
 
 collect.delete_many({})

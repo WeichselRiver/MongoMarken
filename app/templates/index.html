@@ -6,6 +6,8 @@
 
 {% block body %}
 
+<p>Anzahl Marken {{ anzMarken }}</p>
+
 <h1>Deutschland-Spezial Band 1</h1>
 <h2>Altdeutschland</h2>
 
@@ -14,25 +16,6 @@
 
 <h1>Deutschland-Spezial Band 2</h1>
 
-{% for satz in tbl_saetze %}
-<p>{{ satz }}</p>
-{% endfor %}
-<table>
-    <tr>
-        <th>MichNr</th>
-        <th>Entwertung</th>
-        <th>Anzahl</th>
-        <th>Variante</th>
-    </tr>
-    {% for marke in marken %}
-    <tr>
-        <td>{{ marke['MichNr'] }}</td>
-        <td>{{ marke['Entwertung'] }} </td>
-        <td> {{ marke['Anzahl'] }} </td>  
-        <td>None</td>
-    </tr>  
-    {% endfor %}
-</table>
 
 
 {% endblock %}
