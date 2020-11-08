@@ -1,3 +1,4 @@
 env
-conf.py
+config.py
 templates/app.py/config.py
+testing.py
